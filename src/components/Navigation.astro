@@ -22,7 +22,7 @@ const { content } = Astro.props;
 		<div class="nav-right">
 			<ul class="nav-links">
 				{content.links.map(link => (
-					<li><a href={link.href}>{link.text}</a></li>
+					<li><a href={link.href} target={link.href.startsWith('http') ? '_blank' : undefined} rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}>{link.text}</a></li>
 				))}
 			</ul>
 			<CitySelector />

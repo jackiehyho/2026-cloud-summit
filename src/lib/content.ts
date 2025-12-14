@@ -61,7 +61,7 @@ export const sharedHeroContent = {
 export const citySpecificContent: Record<City, CitySpecificContent> = {
 	vancouver: {
 		cityName: 'Vancouver',
-		description: 'Connect with over 1,000 cloud professionals and decision-makers. Showcase your brand at Western Canada\'s largest gathering of AWS, Azure, Google Cloud, and IBM Cloud experts.',
+		description: 'Western Canada\'s largest multi-cloud conference.',
 		venue: 'Science World',
 		address: '1455 Quebec St, Vancouver, BC V6A 3Z7',
 		addressUrl: 'https://maps.app.goo.gl/DQbdiQLYB1qe1iZn7',
@@ -71,7 +71,7 @@ export const citySpecificContent: Record<City, CitySpecificContent> = {
 	},
 	toronto: {
 		cityName: 'Toronto',
-		description: 'Connect with over 1,500 cloud professionals and decision-makers. Showcase your brand at Eastern Canada\'s largest gathering of AWS, Azure, Google Cloud, and IBM Cloud experts.',
+		description: 'Eastern Canada\'s largest multi-cloud conference.',
 		venue: 'Northeastern University',
 		address: '375 Queen St W, Toronto, ON M5V 2A5',
 		addressUrl: 'https://maps.app.goo.gl/tqLCm7Z6r1ctT4Db8',

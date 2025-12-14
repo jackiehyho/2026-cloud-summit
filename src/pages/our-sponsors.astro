@@ -6,17 +6,26 @@ import { navigationContent, footerContent, sponsorshipSponsorsContent } from '..
 
 const sponsorshipTiers = [
 	{
-		name: 'Platinum',
-		price: '$10,000',
-		color: 'rgb(230, 148, 255)',
+		name: 'Bronze',
+		price: '$2,500',
+		color: 'rgb(251, 113, 133)',
 		benefits: [
-			'Premier booth location',
-			'10 conference passes',
-			'Logo on all marketing materials',
-			'Keynote speaking opportunity',
-			'Social media promotion',
-			'Dedicated email blast',
-			'VIP networking session access',
+			'Exhibitor table',
+			'3 conference passes',
+			'Logo on website',
+			'Social media mentions',
+		],
+	},
+	{
+		name: 'Silver',
+		price: '$5,000',
+		color: 'rgb(61, 120, 171)',
+		benefits: [
+			'Standard booth location',
+			'5 conference passes',
+			'Logo on website',
+			'Lightning talk opportunity',
+			'Social media mentions',
 		],
 	},
 	{
@@ -33,26 +42,17 @@ const sponsorshipTiers = [
 		],
 	},
 	{
-		name: 'Silver',
-		price: '$5,000',
-		color: 'rgb(61, 120, 171)',
+		name: 'Platinum',
+		price: '$10,000',
+		color: 'rgb(230, 148, 255)',
 		benefits: [
-			'Standard booth location',
-			'5 conference passes',
-			'Logo on website',
-			'Lightning talk opportunity',
-			'Social media mentions',
-		],
-	},
-	{
-		name: 'Bronze',
-		price: '$2,500',
-		color: 'rgb(251, 113, 133)',
-		benefits: [
-			'Exhibitor table',
-			'3 conference passes',
-			'Logo on website',
-			'Social media mentions',
+			'Premier booth location',
+			'10 conference passes',
+			'Logo on all marketing materials',
+			'Keynote speaking opportunity',
+			'Social media promotion',
+			'Dedicated email blast',
+			'VIP networking session access',
 		],
 	},
 ];
@@ -174,8 +174,8 @@ const sponsorshipTiers = [
 			<section class="sponsorship-tiers">
 				<div class="tiers-container">
 					<h2 class="section-heading">
-						<span class="heading-prefix">Sponsorship </span>
-						Packages
+						<span class="heading-prefix">Our </span>
+						Sponsorship Packages
 					</h2>
 					<div class="tiers-grid">
 						{sponsorshipTiers.map((tier) => (
@@ -251,7 +251,7 @@ const sponsorshipTiers = [
 	/* Hero Section */
 	.sponsorship-hero {
 		padding: 6rem 1.5rem 4rem;
-		background: linear-gradient(180deg, rgba(61, 120, 171, 0.2) 0%, black 100%);
+		background: black;
 	}
 
 	.hero-container {
@@ -294,7 +294,7 @@ const sponsorshipTiers = [
 		font-size: 2.5rem;
 		text-align: center;
 		margin: 0 0 3rem 0;
-		color: rgb(230, 148, 255);
+		color: rgb(168, 251, 90);
 	}
 
 	.heading-prefix {
@@ -491,7 +491,7 @@ const sponsorshipTiers = [
 		}
 
 		.tiers-grid {
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: repeat(4, 1fr);
 		}
 
 		.whats-included {

@@ -10,11 +10,9 @@ const { content, splineUrl = '' } = Astro.props;
 ---
 
 <section class="hero">
-	<!-- {splineUrl && (
-		<div class="hero-spline" data-spline-url={splineUrl}>
-			<canvas id="spline-canvas"></canvas>
-		</div>
-	)} -->
+	<div class="hero-spline">
+		<spline-viewer url="https://prod.spline.design/WKCpgqTWJIavlH1L/scene.splinecode"></spline-viewer>
+	</div>
 	<div class="hero-container">
 		<p class="hero-city" data-city-name>{content.cityName}</p>
 		<h1 class="hero-title" data-city-title>{content.title}</h1>
@@ -33,7 +31,9 @@ const { content, splineUrl = '' } = Astro.props;
 			<a href={content.secondaryCta.href} class="btn btn-secondary">{content.secondaryCta.text}</a>
 		</div>
 	</div>
-</section>
+	</section>
+
+<script is:inline type="module" src="https://unpkg.com/@splinetool/viewer@1.9.48/build/spline-viewer.js"></script>
 
 <script>
 	import { getCityStore } from '../lib/cityStore';
@@ -152,7 +152,7 @@ const { content, splineUrl = '' } = Astro.props;
 	}
 
 	.hero-city {
-		font-size: 3rem;
+		font-size: 1.5rem;
 		font-weight: 400;
 		margin: 0;
 		opacity: 1;
@@ -214,6 +214,11 @@ const { content, splineUrl = '' } = Astro.props;
 		flex-wrap: wrap;
 	}
 
+	spline-viewer {
+		width: 100%;
+		height: 100%;
+	}
+
 	.btn {
 		padding: 0.875rem 2rem;
 		border-radius: 0.5rem;
@@ -254,7 +259,7 @@ const { content, splineUrl = '' } = Astro.props;
 		}
 
 		.hero-city {
-			font-size: 2rem;
+			font-size: 1.25rem;
 		}
 
 		.hero-subtitle {
