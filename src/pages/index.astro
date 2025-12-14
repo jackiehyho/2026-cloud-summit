@@ -2,6 +2,19 @@
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
 import CityModal from '../components/CityModal.astro';
+import AboutCPCA from '../components/AboutCPCA.astro';
+import WhatIsCloudSummit from '../components/WhatIsCloudSummit.astro';
+import CloudSummitActivities from '../components/CloudSummitActivities.astro';
+import SummitSummary from '../components/SummitSummary.astro';
+import HighlightReel from '../components/HighlightReel.astro';
+import Ticker from '../components/Ticker.astro';
+import PastSponsors from '../components/PastSponsors.astro';
+import Newsletter from '../components/Newsletter.astro';
+import Footer from '../components/Footer.astro';
+import { heroContent, navigationContent, aboutCPCAContent, whatIsCloudSummitContent, cloudSummitActivitiesContent, eventHighlightsContent, tickerContent, pastSponsorsContent, newsletterContent, footerContent, defaultCity } from '../lib/content';
+
+// Use default city for SSR, will be updated client-side
+const content = heroContent[defaultCity];
 ---
 
 <html lang="en">
@@ -12,13 +25,23 @@ import CityModal from '../components/CityModal.astro';
 		<meta name="generator" content={Astro.generator} />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link href="https://fonts.googleapis.com/css2?family=Squada+One&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Squada+One&family=Noto+Sans:wght@400;500;600;700&family=Doto:wght@100..900&display=swap" rel="stylesheet" />
 		<title>Cloud Summit 2026</title>
 	</head>
 	<body>
 		<CityModal />
-		<Navigation />
-		<Hero splineUrl="https://prod.spline.design/WKCpgqTWJIavlH1L/scene.splinecode" />
+		<Navigation content={navigationContent} />
+		<Hero content={content} />
+		<AboutCPCA content={aboutCPCAContent} />
+		<WhatIsCloudSummit content={whatIsCloudSummitContent} />
+		<CloudSummitActivities content={cloudSummitActivitiesContent} />
+		<SummitSummary content={eventHighlightsContent} />
+		<HighlightReel content={eventHighlightsContent} />
+		<Ticker content={tickerContent} />
+		<PastSponsors content={pastSponsorsContent} />
+		<Newsletter content={newsletterContent} />
+		<Footer content={footerContent} />
+		<!-- <Hero content={content} splineUrl="https://prod.spline.design/WKCpgqTWJIavlH1L/scene.splinecode" /> -->
 	</body>
 </html>
 
@@ -58,5 +81,6 @@ import CityModal from '../components/CityModal.astro';
 
 	body {
 		min-height: 100vh;
+		background: black;
 	}
 </style>

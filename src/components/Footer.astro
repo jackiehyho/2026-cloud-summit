@@ -1,0 +1,142 @@
+---
+interface Props {
+	content: {
+		copyright: string;
+		links?: Array<{ text: string; href: string }>;
+		social?: Array<{ name: string; url: string }>;
+	};
+}
+
+const { content } = Astro.props;
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+	<div class="footer-container">
+		<div class="footer-logo">
+			<img src="/images/Cloud-summit-logo.svg" alt="Cloud Summit 2026" />
+		</div>
+
+		{content.links && (
+			<nav class="footer-nav">
+				{content.links.map(link => (
+					<a href={link.href}>{link.text}</a>
+				))}
+			</nav>
+		)}
+
+		{content.social && (
+			<div class="footer-social">
+				{content.social.map(social => (
+					<a href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name}>
+						{social.name}
+					</a>
+				))}
+			</div>
+		)}
+
+		<div class="footer-bottom">
+			<p class="footer-copyright">
+				© {currentYear} {content.copyright}
+			</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: black;
+		color: white;
+		padding: 3rem 1.5rem 2rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-container {
+		max-width: 1200px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
+		align-items: center;
+	}
+
+	.footer-logo img {
+		height: 2.5rem;
+		width: auto;
+	}
+
+	.footer-nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+
+	.footer-nav a {
+		color: white;
+		text-decoration: none;
+		font-weight: 500;
+		transition: opacity 0.2s;
+	}
+
+	.footer-nav a:hover {
+		opacity: 0.7;
+	}
+
+	.footer-social {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1.5rem;
+	}
+
+	.footer-social a {
+		color: white;
+		text-decoration: none;
+		font-weight: 500;
+		transition: color 0.2s;
+	}
+
+	.footer-social a:hover {
+		color: rgb(61, 120, 171);
+	}
+
+	.footer-bottom {
+		width: 100%;
+		text-align: center;
+		padding-top: 1.5rem;
+		border-top: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	.footer-copyright {
+		margin: 0;
+		font-size: 0.875rem;
+		opacity: 0.7;
+	}
+
+	@media (min-width: 769px) {
+		.footer {
+			padding: 4rem 2rem 2rem;
+		}
+
+		.footer-container {
+			gap: 2.5rem;
+		}
+
+		.footer-logo img {
+			height: 3rem;
+		}
+
+		.footer-nav {
+			gap: 2rem;
+		}
+
+		.footer-social {
+			gap: 2rem;
+		}
+
+		.footer-copyright {
+			font-size: 1rem;
+		}
+	}
+</style>
