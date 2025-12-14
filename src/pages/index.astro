@@ -1,0 +1,62 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import CityModal from '../components/CityModal.astro';
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Squada+One&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+		<title>Cloud Summit 2026</title>
+	</head>
+	<body>
+		<CityModal />
+		<Navigation />
+		<Hero splineUrl="https://prod.spline.design/WKCpgqTWJIavlH1L/scene.splinecode" />
+	</body>
+</html>
+
+<style is:global>
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	html {
+		font-family: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+		line-height: 1.6;
+		color: #1a1a1a;
+	}
+
+	h1, h2, h3, h4, h5, h6,
+	.nav-logo,
+	.hero-title,
+	.modal-title,
+	.city-name {
+		font-family: 'Squada One', system-ui, sans-serif;
+		font-weight: 400;
+		letter-spacing: 0.02em;
+	}
+
+	p, span, a, li, div, body {
+		font-family: 'Noto Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		html {
+			color: #e0e0e0;
+			background: #0a0a0a;
+		}
+	}
+
+	body {
+		min-height: 100vh;
+	}
+</style>
