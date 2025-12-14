@@ -3,8 +3,10 @@ export interface CitySpecificContent {
 	description: string;
 	venue: string;
 	address: string;
+	addressUrl: string;
 	date: string;
 	time: string;
+	callForSpeakers: string;
 }
 
 export interface HeroContent {
@@ -14,8 +16,10 @@ export interface HeroContent {
 	description: string;
 	venue: string;
 	address: string;
+	addressUrl: string;
 	date: string;
 	time: string;
+	callForSpeakers: string;
 	primaryCta: {
 		text: string;
 		href: string;
@@ -60,16 +64,20 @@ export const citySpecificContent: Record<City, CitySpecificContent> = {
 		description: 'Connect with over 1,000 cloud professionals and decision-makers. Showcase your brand at Western Canada\'s largest gathering of AWS, Azure, Google Cloud, and IBM Cloud experts.',
 		venue: 'Science World',
 		address: '1455 Quebec St, Vancouver, BC V6A 3Z7',
+		addressUrl: 'https://maps.app.goo.gl/DQbdiQLYB1qe1iZn7',
 		date: 'Friday, May 1st, 2026',
 		time: '2pm - 9pm',
+		callForSpeakers: 'February 2026',
 	},
 	toronto: {
 		cityName: 'Toronto',
 		description: 'Connect with over 1,500 cloud professionals and decision-makers. Showcase your brand at Eastern Canada\'s largest gathering of AWS, Azure, Google Cloud, and IBM Cloud experts.',
 		venue: 'Northeastern University',
 		address: '375 Queen St W, Toronto, ON M5V 2A5',
+		addressUrl: 'https://maps.app.goo.gl/tqLCm7Z6r1ctT4Db8',
 		date: 'Saturday, August 29th, 2026',
 		time: '12pm - 6pm',
+		callForSpeakers: 'April 2026',
 	},
 };
 
@@ -158,14 +166,23 @@ export const tickerContent = {
 export const footerContent = {
 	copyright: 'Cloud Summit. All rights reserved.',
 	links: [
-		{ text: 'Home', href: '/' },
-		{ text: 'About', href: '#about' },
-		{ text: 'Packages', href: '#packages' },
-		{ text: 'Contact', href: '#contact' },
+		{ text: 'About Cloud Summit', href: '/about-cloud-summit' },
+		{ text: 'Our Event Team', href: '/our-team' },
+		{ text: 'Call for Speakers', href: '/our-speakers' },
+		{ text: 'Sponsorship Info', href: '/our-sponsors' },
+		{ text: 'Get Earlybird Tickets', href: 'https://luma.com/cloudsummit26' },
 	],
 	social: [
 		{ name: 'Instagram', url: 'https://www.instagram.com/canadiancloudninja/' },
 		{ name: 'LinkedIn', url: 'https://www.linkedin.com/showcase/vancouvercloudsummit' },
+	],
+	pressReleases: [
+		{ text: '2025 Press Release', href: 'https://cloudsummit.ca/press' },
+	],
+	previousYears: [
+		{ text: '2025', href: 'https://2025.cloudsummit.ca' },
+		{ text: '2024', href: 'https://2024.cloudsummit.ca' },
+		{ text: '2023', href: 'https://2023.cloudsummit.ca' },
 	],
 };
 
