@@ -1,12 +1,12 @@
 export interface CitySpecificContent {
 	cityName: string;
-	description: string;
 	venue: string;
 	address: string;
 	addressUrl: string;
 	date: string;
 	time: string;
 	callForSpeakers: string;
+	ticketUrl: string;
 }
 
 export interface HeroContent {
@@ -43,17 +43,19 @@ export interface NavigationContent {
 
 export type City = 'vancouver' | 'toronto';
 
+export const defaultCity: City = 'vancouver';
+
 // Shared content across all cities
 export const sharedHeroContent = {
 	title: 'Cloud Summit 2026',
-	subtitle: 'Sponsor Canada\'s Premier Multi-Cloud Event',
+	subtitle: 'Sponsor Canada\'s Largest Multi-Cloud Conference',
 	primaryCta: {
 		text: 'Become a Sponsor',
-		href: '/sponsorship',
+		href: 'https://tally.so/r/wLqXvO',
 	},
 	secondaryCta: {
 		text: 'Become a Speaker',
-		href: '/speakers#speakers',
+		href: 'https://tally.so/r/rjBeN5',
 	},
 };
 
@@ -61,23 +63,23 @@ export const sharedHeroContent = {
 export const citySpecificContent: Record<City, CitySpecificContent> = {
 	vancouver: {
 		cityName: 'Vancouver',
-		description: 'Western Canada\'s largest multi-cloud conference.',
 		venue: 'Science World',
 		address: '1455 Quebec St, Vancouver, BC V6A 3Z7',
 		addressUrl: 'https://maps.app.goo.gl/DQbdiQLYB1qe1iZn7',
 		date: 'Friday, May 1st, 2026',
 		time: '2pm - 9pm',
 		callForSpeakers: 'February 2026',
+		ticketUrl: 'https://luma.com/cloudsummit26',
 	},
 	toronto: {
 		cityName: 'Toronto',
-		description: 'Eastern Canada\'s largest multi-cloud conference.',
 		venue: 'Northeastern University',
 		address: '375 Queen St W, Toronto, ON M5V 2A5',
 		addressUrl: 'https://maps.app.goo.gl/tqLCm7Z6r1ctT4Db8',
 		date: 'Saturday, August 29th, 2026',
 		time: '12pm - 6pm',
 		callForSpeakers: 'April 2026',
+		ticketUrl: 'https://luma.com/0xpa2rxj',
 	},
 };
 
@@ -95,17 +97,23 @@ export const heroContent: Record<City, HeroContent> = {
 	toronto: getHeroContent('toronto'),
 };
 
-export const navigationContent: NavigationContent = {
-	links: [
-		{ text: 'About Cloud Summit', href: '/about-cloud-summit' },
-		{ text: 'Our Event Team', href: '/our-team' },
-		{ text: 'Call for Speakers', href: '/our-speakers' },
-		{ text: 'Sponsorship Info', href: '/our-sponsors' },
-		{ text: 'Get Earlybird Tickets', href: 'https://luma.com/cloudsummit26' },
-	],
-	ctaText: 'Become a Sponsor',
-	ctaHref: '/our-sponsors',
-};
+// Helper function to get navigation content with city-specific ticket URL
+export function getNavigationContent(city: City): NavigationContent {
+	return {
+		links: [
+			{ text: 'About Cloud Summit', href: '/about-cloud-summit' },
+			{ text: 'Our Event Team', href: '/our-team' },
+			{ text: 'Call for Speakers', href: '/our-speakers' },
+			{ text: 'Sponsorship Info', href: '/our-sponsors' },
+			{ text: 'Get Earlybird Tickets', href: citySpecificContent[city].ticketUrl },
+		],
+		ctaText: 'Become a Sponsor',
+		ctaHref: 'https://tally.so/r/wLqXvO',
+	};
+}
+
+// Default navigation content (for backwards compatibility)
+export const navigationContent: NavigationContent = getNavigationContent(defaultCity);
 
 export const aboutCPCAContent = {
 	description: 'As a non-profit organization, our purpose is to bring together & educate the local tech community about the cloud and support our local community through charity.',
@@ -136,8 +144,8 @@ export const cloudSummitActivitiesContent = {
 			image: '/images/activities/tech_companies.svg',
 		},
 		{
-			title: 'Join Live Interviews',
-			description: 'Participate in candid discussions about cloud technologies, AI, and the future of tech with experienced industry experts.',
+			title: 'High-Pressure Live Cloud Builds',
+			description: 'Watch top teams race the clock in live cloud showdowns, shipping under pressure as the crowd votes and shapes the action.',
 			image: '/images/activities/laptop.svg',
 		},
 		{
@@ -163,28 +171,34 @@ export const tickerContent = {
 	prefix: 'Explore',
 };
 
-export const footerContent = {
-	copyright: 'Cloud Summit. All rights reserved.',
-	links: [
-		{ text: 'About Cloud Summit', href: '/about-cloud-summit' },
-		{ text: 'Our Event Team', href: '/our-team' },
-		{ text: 'Call for Speakers', href: '/our-speakers' },
-		{ text: 'Sponsorship Info', href: '/our-sponsors' },
-		{ text: 'Get Earlybird Tickets', href: 'https://luma.com/cloudsummit26' },
-	],
-	social: [
-		{ name: 'Instagram', url: 'https://www.instagram.com/canadiancloudninja/' },
-		{ name: 'LinkedIn', url: 'https://www.linkedin.com/showcase/vancouvercloudsummit' },
-	],
-	pressReleases: [
-		{ text: '2025 Press Release', href: 'https://cloudsummit.ca/press' },
-	],
-	previousYears: [
-		{ text: '2025', href: 'https://2025.cloudsummit.ca' },
-		{ text: '2024', href: 'https://2024.cloudsummit.ca' },
-		{ text: '2023', href: 'https://2023.cloudsummit.ca' },
-	],
-};
+// Helper function to get footer content with city-specific ticket URL
+export function getFooterContent(city: City) {
+	return {
+		copyright: 'Cloud Summit. All rights reserved.',
+		links: [
+			{ text: 'About Cloud Summit', href: '/about-cloud-summit' },
+			{ text: 'Our Event Team', href: '/our-team' },
+			{ text: 'Call for Speakers', href: '/our-speakers' },
+			{ text: 'Sponsorship Info', href: '/our-sponsors' },
+			{ text: 'Get Earlybird Tickets', href: citySpecificContent[city].ticketUrl },
+		],
+		social: [
+			{ name: 'Instagram', url: 'https://www.instagram.com/canadiancloudninja/' },
+			{ name: 'LinkedIn', url: 'https://www.linkedin.com/showcase/vancouvercloudsummit' },
+		],
+		pressReleases: [
+			{ text: '2025 Press Release', href: 'https://cloudsummit.ca/press' },
+		],
+		previousYears: [
+			{ text: '2025', href: 'https://2025.cloudsummit.ca' },
+			{ text: '2024', href: 'https://2024.cloudsummit.ca' },
+			{ text: '2023', href: 'https://2023.cloudsummit.ca' },
+		],
+	};
+}
+
+// Default footer content (for backwards compatibility)
+export const footerContent = getFooterContent(defaultCity);
 
 export const pastSponsorsContent = {
 	prefix: 'Thank You',
@@ -205,5 +219,3 @@ export const newsletterContent = {
 	ctaText: 'Subscribe to Newsletter',
 	ctaHref: 'https://tally.so/r/mR6RBl',
 };
-
-export const defaultCity: City = 'vancouver';

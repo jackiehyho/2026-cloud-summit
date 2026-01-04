@@ -7,7 +7,6 @@ import { navigationContent, footerContent, sponsorshipSponsorsContent } from '..
 const sponsorshipTiers = [
 	{
 		name: 'Bronze',
-		price: '$2,500',
 		color: 'rgb(251, 113, 133)',
 		benefits: [
 			'Exhibitor table',
@@ -18,7 +17,6 @@ const sponsorshipTiers = [
 	},
 	{
 		name: 'Silver',
-		price: '$5,000',
 		color: 'rgb(61, 120, 171)',
 		benefits: [
 			'Standard booth location',
@@ -30,7 +28,6 @@ const sponsorshipTiers = [
 	},
 	{
 		name: 'Gold',
-		price: '$7,500',
 		color: 'rgb(255, 193, 77)',
 		benefits: [
 			'Premium booth location',
@@ -43,7 +40,6 @@ const sponsorshipTiers = [
 	},
 	{
 		name: 'Platinum',
-		price: '$10,000',
 		color: 'rgb(230, 148, 255)',
 		benefits: [
 			'Premier booth location',
@@ -77,7 +73,7 @@ const sponsorshipTiers = [
 			<section class="sponsorship-hero">
 				<div class="hero-container">
 					<h1 class="hero-title">Event Sponsorship</h1>
-					<p class="hero-subtitle">Partner with Canada's Premier Multi-Cloud Event</p>
+					<p class="hero-subtitle">Partner with Canada's Largest Multi-Cloud Conference</p>
 					<p class="hero-description">
 						Reach over 1,000+ cloud professionals and decision-makers at Cloud Summit 2026.
 						Showcase your brand at the largest gathering of AWS, Azure, Google Cloud, and IBM Cloud experts.
@@ -177,12 +173,12 @@ const sponsorshipTiers = [
 						<span class="heading-prefix">Our </span>
 						Sponsorship Packages
 					</h2>
+					<p class="tiers-pricing">Get involved by sponsoring the event, with prices starting at $2,500+</p>
 					<div class="tiers-grid">
 						{sponsorshipTiers.map((tier) => (
 							<div class="tier-card">
 								<div class="tier-header" style={`border-color: ${tier.color}`}>
 									<h3 class="tier-name" style={`color: ${tier.color}`}>{tier.name}</h3>
-									<p class="tier-price">{tier.price}</p>
 								</div>
 								<ul class="tier-benefits">
 									{tier.benefits.map((benefit) => (
@@ -299,6 +295,14 @@ const sponsorshipTiers = [
 
 	.heading-prefix {
 		color: white;
+	}
+
+	.tiers-pricing {
+		text-align: center;
+		font-size: 1.125rem;
+		color: white;
+		opacity: 0.9;
+		margin: -1rem 0 3rem 0;
 	}
 
 	.tiers-grid {
@@ -488,6 +492,10 @@ const sponsorshipTiers = [
 
 		.section-heading {
 			font-size: 4rem;
+		}
+
+		.tiers-pricing {
+			font-size: 1.25rem;
 		}
 
 		.tiers-grid {

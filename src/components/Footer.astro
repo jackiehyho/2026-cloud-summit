@@ -78,6 +78,44 @@ const currentYear = new Date().getFullYear();
 	</div>
 </footer>
 
+<script>
+	import { getCityStore } from '../lib/cityStore';
+	import { citySpecificContent } from '../lib/content';
+	import type { City } from '../lib/content';
+
+	// Update ticket URL when city changes
+	function updateTicketUrl() {
+		const cityStore = getCityStore();
+		const currentCity = cityStore.getCity();
+		const ticketLinks = document.querySelectorAll('.footer-nav a[href*="luma.com"]') as NodeListOf<HTMLAnchorElement>;
+
+		ticketLinks.forEach(link => {
+			link.href = citySpecificContent[currentCity].ticketUrl;
+		});
+	}
+
+	// Initialize and subscribe to city changes
+	function initCityAwareFooter() {
+		const cityStore = getCityStore();
+		cityStore.init();
+
+		// Update ticket URL on initial load
+		updateTicketUrl();
+
+		// Subscribe to city changes
+		cityStore.subscribe((city: City) => {
+			updateTicketUrl();
+		});
+	}
+
+	// Run when DOM is ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', initCityAwareFooter);
+	} else {
+		initCityAwareFooter();
+	}
+</script>
+
 <style>
 	.footer {
 		background: black;
