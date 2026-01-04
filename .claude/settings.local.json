@@ -6,7 +6,10 @@
       "WebFetch(domain:cloudsummit.ca)",
       "Bash(cat:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "mcp__ide__getDiagnostics",
+      "Bash(npm run build:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []

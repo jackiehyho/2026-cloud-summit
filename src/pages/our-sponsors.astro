@@ -2,6 +2,7 @@
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import PastSponsors from '../components/PastSponsors.astro';
+import ScrollAnimations from '../components/ScrollAnimations.astro';
 import { navigationContent, footerContent, sponsorshipSponsorsContent } from '../lib/content';
 
 const sponsorshipTiers = [
@@ -71,6 +72,23 @@ const sponsorshipTiers = [
 		<main class="sponsorship-page">
 			<!-- Hero Section -->
 			<section class="sponsorship-hero">
+				<div class="pulsing-squares">
+					<div class="square" style="left: 10%; top: 15%;"></div>
+					<div class="square" style="left: 25%; top: 25%;"></div>
+					<div class="square" style="left: 40%; top: 18%;"></div>
+					<div class="square" style="left: 55%; top: 30%;"></div>
+					<div class="square" style="left: 70%; top: 22%;"></div>
+					<div class="square" style="left: 85%; top: 35%;"></div>
+					<div class="square" style="left: 15%; top: 45%;"></div>
+					<div class="square" style="left: 35%; top: 50%;"></div>
+					<div class="square" style="left: 50%; top: 13%;"></div>
+					<div class="square" style="left: 65%; top: 55%;"></div>
+					<div class="square" style="left: 80%; top: 48%;"></div>
+					<div class="square" style="left: 20%; top: 60%;"></div>
+					<div class="square" style="left: 45%; top: 65%;"></div>
+					<div class="square" style="left: 75%; top: 70%;"></div>
+					<div class="square" style="left: 30%; top: 75%;"></div>
+				</div>
 				<div class="hero-container">
 					<h1 class="hero-title">Event Sponsorship</h1>
 					<p class="hero-subtitle">Partner with Canada's Largest Multi-Cloud Conference</p>
@@ -209,6 +227,7 @@ const sponsorshipTiers = [
 		</main>
 
 		<Footer content={footerContent} />
+		<ScrollAnimations />
 	</body>
 </html>
 
@@ -248,12 +267,60 @@ const sponsorshipTiers = [
 	.sponsorship-hero {
 		padding: 6rem 1.5rem 4rem;
 		background: black;
+		position: relative;
+		overflow: hidden;
+	}
+
+	.pulsing-squares {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		pointer-events: none;
+		z-index: 0;
+	}
+
+	.square {
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		background: rgb(168, 251, 90);
+		animation: pulse 2s ease-in-out infinite;
+	}
+
+	/* Varied opacity for depth */
+	.square:nth-child(1) { animation-delay: 0s; opacity: 0.4; }
+	.square:nth-child(2) { animation-delay: 0.3s; opacity: 0.38; }
+	.square:nth-child(3) { animation-delay: 0.6s; opacity: 0.4; }
+	.square:nth-child(4) { animation-delay: 0.9s; opacity: 0.32; }
+	.square:nth-child(5) { animation-delay: 1.2s; opacity: 0.38; }
+	.square:nth-child(6) { animation-delay: 1.5s; opacity: 0.3; }
+	.square:nth-child(7) { animation-delay: 0.4s; opacity: 0.28; }
+	.square:nth-child(8) { animation-delay: 0.8s; opacity: 0.25; }
+	.square:nth-child(9) { animation-delay: 0.2s; opacity: 0.45; }
+	.square:nth-child(10) { animation-delay: 1.1s; opacity: 0.22; }
+	.square:nth-child(11) { animation-delay: 1.4s; opacity: 0.25; }
+	.square:nth-child(12) { animation-delay: 0.5s; opacity: 0.2; }
+	.square:nth-child(13) { animation-delay: 1.0s; opacity: 0.18; }
+	.square:nth-child(14) { animation-delay: 1.3s; opacity: 0.15; }
+	.square:nth-child(15) { animation-delay: 0.7s; opacity: 0.18; }
+
+	@keyframes pulse {
+		0%, 100% {
+			transform: scale(1);
+		}
+		50% {
+			transform: scale(1.3);
+		}
 	}
 
 	.hero-container {
 		max-width: 900px;
 		margin: 0 auto;
 		text-align: center;
+		position: relative;
+		z-index: 1;
 	}
 
 	.hero-title {
