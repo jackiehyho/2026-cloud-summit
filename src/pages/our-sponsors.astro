@@ -195,8 +195,8 @@ const sponsorshipTiers = [
 					<div class="tiers-grid">
 						{sponsorshipTiers.map((tier) => (
 							<div class="tier-card">
-								<div class="tier-header" style={`border-color: ${tier.color}`}>
-									<h3 class="tier-name" style={`color: ${tier.color}`}>{tier.name}</h3>
+								<div class="tier-header">
+									<h3 class="tier-name">{tier.name}</h3>
 								</div>
 								<ul class="tier-benefits">
 									{tier.benefits.map((benefit) => (
@@ -391,13 +391,14 @@ const sponsorshipTiers = [
 		text-align: center;
 		padding-bottom: 1.5rem;
 		margin-bottom: 1.5rem;
-		border-bottom: 2px solid;
+		border-bottom: 2px solid white;
 	}
 
 	.tier-name {
 		font-family: 'Squada One', system-ui, sans-serif;
 		font-size: 2rem;
 		margin: 0 0 0.5rem 0;
+		color: white;
 	}
 
 	.tier-price {
