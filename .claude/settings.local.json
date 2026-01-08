@@ -9,7 +9,10 @@
       "Bash(git commit:*)",
       "mcp__ide__getDiagnostics",
       "Bash(npm run build:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git stash:*)"
     ],
     "deny": [],
     "ask": []

@@ -102,7 +102,7 @@ export function getNavigationContent(city: City): NavigationContent {
 	return {
 		links: [
 			{ text: 'About Cloud Summit', href: '/about-cloud-summit' },
-			{ text: 'Our Event Team', href: '/our-team' },
+			// { text: 'Our Event Team', href: '/our-team' },
 			{ text: 'Call for Speakers', href: '/our-speakers' },
 			{ text: 'Sponsorship Info', href: '/our-sponsors' },
 			{ text: 'Get Earlybird Tickets', href: citySpecificContent[city].ticketUrl },
